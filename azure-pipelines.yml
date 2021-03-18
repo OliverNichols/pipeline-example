@@ -1,0 +1,11 @@
+pool:
+  vmImage: "ubuntu-latest"
+steps:
+  - task: SSH@0
+    inputs:
+      sshEndpoint: 'terra-vm-ssh'
+      runOptions: 'commands'
+      commands: |
+        touch connections.log
+        echo "Pipeline connected at $(date +"%r")" >> connections.log
+      failOnStdErr: true # Optional
